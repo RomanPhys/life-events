@@ -15,7 +15,8 @@ Run "python -m src.report --runs runs_synth --out reports/synthetic.md"
 
 # MBD-mini
 Run "python -m src.inspect_mbd --download --root data/mbd"
-Run "python -m src.prepare --raw data/mbd --out prepared/mbd --max-clients 40000 --last-months 6 --time-shift-hours 3"
+# так считались результаты в README; с --time-shift-hours 3 включается поправка на часовой пояс
+Run "python -m src.prepare --raw data/mbd --out prepared/mbd --max-clients 40000 --last-months 6"
 Run "python -m src.gbm --data prepared/mbd --name gbm"
 Run "python -m src.gbm --data prepared/mbd --name gbm_leak --leak"
 foreach ($s in 0,1,2) {
